@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Data
 @AllArgsConstructor
@@ -14,4 +15,5 @@ public class Person {
     private String lastName;
     private LocalDate dob;
     private BigDecimal salary;
+
 }
