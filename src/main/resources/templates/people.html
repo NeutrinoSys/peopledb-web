@@ -15,6 +15,7 @@
             <th scope="col">Last Name</th>
             <th scope="col">First Name</th>
             <th scope="col">DOB</th>
+            <th scope="col">Email</th>
             <th scope="col">Salary</th>
         </tr>
         </thead>
@@ -24,6 +25,7 @@
             <td th:text="${person.lastName}">Mark</td>
             <td th:text="${person.firstName}">Otto</td>
             <td th:text="${{person.dob}}">@mdo</td>
+            <td th:text="${{person.email}}">@mdo</td>
             <td th:text="${{person.salary}}">@mdo</td>
         </tr>
         <tr th:remove="all">
@@ -39,7 +41,34 @@
         </tr>
         </tbody>
     </table>
+
+    <form th:object="${person}" method="post">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" th:field="*{firstName}" aria-describedby="firstNameHelp">
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" aria-describedby="lastNameHelp">
+        </div>
+        <div class="mb-3">
+            <label for="dob" class="form-label">DOB</label>
+            <input type="date" class="form-control" id="dob" th:field="*{dob}" aria-describedby="dobHelp">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" th:field="*{email}" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="salary" class="form-label">Salary</label>
+            <input type="number" class="form-control" id="salary" th:field="*{salary}">
+        </div>
+        <button type="submit" class="btn btn-primary">Save Person</button>
+    </form>
 </div>
+
+
 
 </body>
 </html>
