@@ -3,10 +3,13 @@ package com.neutrinosys.peopledbweb.web.controller;
 import com.neutrinosys.peopledbweb.biz.model.Person;
 import com.neutrinosys.peopledbweb.data.PersonRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/people")
@@ -34,9 +37,12 @@ public class PeopleController {
     }
 
     @PostMapping
-    public String savePerson(Person person) {
+    public String savePerson(@Valid Person person, Errors errors) {
         System.out.println(person);
-        personRepository.save(person);
-        return "redirect:people";
+        if (!errors.hasErrors()) {
+            personRepository.save(person);
+            return "redirect:people";
+        }
+        return "people";
     }
 }
