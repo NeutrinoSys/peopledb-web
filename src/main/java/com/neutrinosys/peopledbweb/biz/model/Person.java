@@ -38,4 +38,6 @@ public class Person {
     @NotNull(message = "Salary can not be empty")
     private BigDecimal salary;
 
+    private String photoFilename;
+
 }
