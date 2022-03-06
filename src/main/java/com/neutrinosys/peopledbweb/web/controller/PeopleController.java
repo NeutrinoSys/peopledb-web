@@ -3,6 +3,7 @@ package com.neutrinosys.peopledbweb.web.controller;
 import com.neutrinosys.peopledbweb.biz.model.Person;
 import com.neutrinosys.peopledbweb.data.FileStorageRepository;
 import com.neutrinosys.peopledbweb.data.PersonRepository;
+import com.neutrinosys.peopledbweb.exception.StorageException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -61,15 +62,20 @@ public class PeopleController {
     }
 
     @PostMapping
-    public String savePerson(@Valid Person person, Errors errors, @RequestParam("photoFilename") MultipartFile photoFile) throws IOException {
+    public String savePerson(Model model, @Valid Person person, Errors errors, @RequestParam("photoFilename") MultipartFile photoFile) throws IOException {
         log.info(person);
         log.info("Filename " + photoFile.getOriginalFilename());
         log.info("File size: " + photoFile.getSize());
         log.info("Errors" + errors);
         if (!errors.hasErrors()) {
-            fileStorageRepository.save(photoFile.getOriginalFilename(), photoFile.getInputStream());
-            personRepository.save(person);
-            return "redirect:people";
+            try {
+                fileStorageRepository.save(photoFile.getOriginalFilename(), photoFile.getInputStream());
+                personRepository.save(person);
+                return "redirect:people";
+            } catch (StorageException e) {
+                model.addAttribute("errorMsg", "System is currently unable to accept photo files at this time.");
+                return "people";
+            }
         }
         return "people";
     }
