@@ -3,6 +3,7 @@ package com.neutrinosys.peopledbweb.biz.service;
 import com.neutrinosys.peopledbweb.biz.model.Person;
 import com.neutrinosys.peopledbweb.data.FileStorageRepository;
 import com.neutrinosys.peopledbweb.data.PersonRepository;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,5 +48,9 @@ public class PersonService {
         Set<String> filenames = personRepository.findFilenamesByIds(ids);
         personRepository.deleteAllById(ids);
         storageRepository.deleteAllByName(filenames);
+    }
+
+    public long count() {
+        return personRepository.count();
     }
 }
