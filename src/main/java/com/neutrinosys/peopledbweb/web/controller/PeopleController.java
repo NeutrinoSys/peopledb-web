@@ -1,6 +1,7 @@
 package com.neutrinosys.peopledbweb.web.controller;
 
 import com.neutrinosys.peopledbweb.biz.model.Person;
+import com.neutrinosys.peopledbweb.biz.service.PersonService;
 import com.neutrinosys.peopledbweb.data.FileStorageRepository;
 import com.neutrinosys.peopledbweb.data.PersonRepository;
 import com.neutrinosys.peopledbweb.exception.StorageException;
@@ -31,11 +32,14 @@ public class PeopleController {
             """;
     private PersonRepository personRepository;
     private FileStorageRepository fileStorageRepository;
+    private PersonService personService;
 
     public PeopleController(PersonRepository personRepository,
-                            FileStorageRepository fileStorageRepository) {
+                            FileStorageRepository fileStorageRepository,
+                            PersonService personService) {
         this.personRepository = personRepository;
         this.fileStorageRepository = fileStorageRepository;
+        this.personService = personService;
     }
 
     @ModelAttribute("people")
@@ -69,8 +73,7 @@ public class PeopleController {
         log.info("Errors" + errors);
         if (!errors.hasErrors()) {
             try {
-                fileStorageRepository.save(photoFile.getOriginalFilename(), photoFile.getInputStream());
-                personRepository.save(person);
+                personService.save(person, photoFile.getInputStream());
                 return "redirect:people";
             } catch (StorageException e) {
                 model.addAttribute("errorMsg", "System is currently unable to accept photo files at this time.");
@@ -84,7 +87,8 @@ public class PeopleController {
     public String deletePeople(@RequestParam Optional<List<Long>> selections) {
         log.info(selections);
         if (selections.isPresent()) {
-            personRepository.deleteAllById(selections.get());
+//            personRepository.deleteAllById(selections.get());
+            personService.deleteAllById(selections.get());
         }
         return "redirect:people";
     }
