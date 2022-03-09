@@ -3,15 +3,14 @@ package com.neutrinosys.peopledbweb.biz.service;
 import com.neutrinosys.peopledbweb.biz.model.Person;
 import com.neutrinosys.peopledbweb.data.FileStorageRepository;
 import com.neutrinosys.peopledbweb.data.PersonRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.InputStream;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 @Service
 public class PersonService {
@@ -36,6 +35,10 @@ public class PersonService {
 
     public Iterable<Person> findAll() {
         return personRepository.findAll();
+    }
+
+    public Page<Person> findAll(Pageable pageable) {
+        return personRepository.findAll(pageable);
     }
 
     public void deleteAllById(Iterable<Long> ids) {

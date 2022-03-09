@@ -7,6 +7,9 @@ import com.neutrinosys.peopledbweb.data.PersonRepository;
 import com.neutrinosys.peopledbweb.exception.StorageException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -43,8 +46,8 @@ public class PeopleController {
     }
 
     @ModelAttribute("people")
-    public Iterable<Person> getPeople() {
-        return personRepository.findAll();
+    public Page<Person> getPeople(@PageableDefault(size = 3) Pageable page) {
+        return personService.findAll(page);
     }
 
     @ModelAttribute
