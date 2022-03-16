@@ -101,7 +101,7 @@ public class PeopleController {
         log.info(selections);
         if (selections.isPresent()) {
             Optional<Person> person = personRepository.findById(selections.get().get(0));
-            model.addAttribute("person", person);
+            model.addAttribute("person", person.get());
         }
         return "people";
     }

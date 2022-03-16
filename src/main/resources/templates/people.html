@@ -25,8 +25,8 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:if="${#lists.isEmpty(people)}">
-                <td colspan="6" class="text-center">No Data</td>
+            <tr th:if="${people.isEmpty()}">
+                <td colspan="8" class="text-center">No Data</td>
             </tr>
             <tr th:each="person : ${people}">
                 <td><input class="form-check-input" type="checkbox" name="selections" th:value="${person.id}" /></td>

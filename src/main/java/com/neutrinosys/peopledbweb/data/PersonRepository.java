@@ -11,6 +11,6 @@ import java.util.Set;
 @Repository
 public interface PersonRepository extends PagingAndSortingRepository<Person, Long> {
 
-    @Query(nativeQuery = true, value = "select photo_filename from person where id in :ids")
+    @Query(nativeQuery = true, value = "select PHOTO_FILENAME from person where id in :ids")
     public Set<String> findFilenamesByIds(@Param("ids") Iterable<Long> ids);
 }
