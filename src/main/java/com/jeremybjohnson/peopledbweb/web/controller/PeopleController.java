@@ -50,6 +50,7 @@ public class PeopleController {
     public Page<Person> getPeople(@PageableDefault(size = 10) Pageable page) {
         return personService.findAll(page);
     }
+    // this is an extra
 
     @ModelAttribute
     public Person getPerson() {

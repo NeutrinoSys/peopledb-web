@@ -21,6 +21,7 @@ public class FileStorageRepository {
     @Value("${STORAGE_FOLDER}")
     private String storageFolder;
     public void save(String originalFilename, InputStream inputStream) {
+        if (inputStream==null) return;
         try {
             Path filePath = Path.of(storageFolder).resolve(originalFilename).normalize();
             Files.copy(inputStream, filePath);
