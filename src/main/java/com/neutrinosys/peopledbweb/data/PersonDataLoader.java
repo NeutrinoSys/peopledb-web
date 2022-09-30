@@ -3,12 +3,13 @@ package com.neutrinosys.peopledbweb.data;
 import com.neutrinosys.peopledbweb.biz.model.Person;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-//@Component
+@Component
 public class PersonDataLoader implements ApplicationRunner {
     private PersonRepository personRepository;
 
