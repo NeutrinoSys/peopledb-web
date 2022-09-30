@@ -1,7 +1,7 @@
-package com.jeremybjohnson.peopledbweb.web.controller;
+package com.neutrinosys.peopledbweb.web.controller;
 
-import com.jeremybjohnson.peopledbweb.biz.model.Person;
-import com.jeremybjohnson.peopledbweb.biz.service.PersonService;
+import com.neutrinosys.peopledbweb.biz.model.Person;
+import com.neutrinosys.peopledbweb.biz.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.jeremybjohnson.peopledbweb.biz.model;
+package com.neutrinosys.peopledbweb.biz.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

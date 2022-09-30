@@ -1,6 +1,6 @@
-package com.jeremybjohnson.peopledbweb.data;
+package com.neutrinosys.peopledbweb.data;
 
-import com.jeremybjohnson.peopledbweb.biz.model.Person;
+import com.neutrinosys.peopledbweb.biz.model.Person;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;

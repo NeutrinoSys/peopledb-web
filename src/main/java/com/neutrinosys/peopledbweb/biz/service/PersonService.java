@@ -1,8 +1,8 @@
-package com.jeremybjohnson.peopledbweb.biz.service;
+package com.neutrinosys.peopledbweb.biz.service;
 
-import com.jeremybjohnson.peopledbweb.biz.model.Person;
-import com.jeremybjohnson.peopledbweb.data.FileStorageRepository;
-import com.jeremybjohnson.peopledbweb.data.PersonRepository;
+import com.neutrinosys.peopledbweb.biz.model.Person;
+import com.neutrinosys.peopledbweb.data.FileStorageRepository;
+import com.neutrinosys.peopledbweb.data.PersonRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

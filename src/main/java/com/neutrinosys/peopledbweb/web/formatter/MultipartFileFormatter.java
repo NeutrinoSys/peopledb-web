@@ -1,4 +1,4 @@
-package com.jeremybjohnson.peopledbweb.web.formatter;
+package com.neutrinosys.peopledbweb.web.formatter;
 
 import org.springframework.format.Formatter;
 import org.springframework.stereotype.Component;

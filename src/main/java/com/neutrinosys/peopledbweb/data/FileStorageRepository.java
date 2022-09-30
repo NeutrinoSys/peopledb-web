@@ -1,6 +1,6 @@
-package com.jeremybjohnson.peopledbweb.data;
+package com.neutrinosys.peopledbweb.data;
 
-import com.jeremybjohnson.peopledbweb.exception.StorageException;
+import com.neutrinosys.peopledbweb.exception.StorageException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;

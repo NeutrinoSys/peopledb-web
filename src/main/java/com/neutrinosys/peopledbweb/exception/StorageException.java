@@ -1,4 +1,4 @@
-package com.jeremybjohnson.peopledbweb.exception;
+package com.neutrinosys.peopledbweb.exception;
 
 public class StorageException extends RuntimeException {
     public StorageException() {

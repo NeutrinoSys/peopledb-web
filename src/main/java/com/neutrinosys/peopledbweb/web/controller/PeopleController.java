@@ -1,10 +1,10 @@
-package com.jeremybjohnson.peopledbweb.web.controller;
+package com.neutrinosys.peopledbweb.web.controller;
 
-import com.jeremybjohnson.peopledbweb.biz.model.Person;
-import com.jeremybjohnson.peopledbweb.biz.service.PersonService;
-import com.jeremybjohnson.peopledbweb.data.FileStorageRepository;
-import com.jeremybjohnson.peopledbweb.data.PersonRepository;
-import com.jeremybjohnson.peopledbweb.exception.StorageException;
+import com.neutrinosys.peopledbweb.biz.model.Person;
+import com.neutrinosys.peopledbweb.biz.service.PersonService;
+import com.neutrinosys.peopledbweb.data.FileStorageRepository;
+import com.neutrinosys.peopledbweb.data.PersonRepository;
+import com.neutrinosys.peopledbweb.exception.StorageException;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.io.Resource;
