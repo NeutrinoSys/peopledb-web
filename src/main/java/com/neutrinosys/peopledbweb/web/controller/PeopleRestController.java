@@ -35,7 +35,7 @@ public class PeopleRestController {
     }
 
     @PostMapping
-    public Person savePerson(Person person) {
+    public Person savePerson(@RequestBody Person person) {
         Person savedPerson = personService.save(person, null);
         return savedPerson;
     }
